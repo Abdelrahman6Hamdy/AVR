@@ -1,0 +1,65 @@
+#define F_CPU 8000000UL
+
+#include "../MCAL/DIO/DIO_Init.h"
+#include "../HAL/LCD/LCD_Int.h"
+#include "../MCAL/ADC/ADC_Interface.h"
+#include "../HAL/LM35/LM35_Init.h"
+
+
+#include <util/delay.h>
+
+u8 G_ReadValue;
+u8 G_Temp;
+
+int main(void)
+{
+	MDIO_voidSetPinDirection(PORTC,PIN0,OUTPUT);
+	MDIO_voidSetPinDirection(PORTC,PIN1,OUTPUT);
+
+
+	HLCD_VoidInit();
+	HLM35_VoidLM35Init();
+	MADC_VoidADCInit();
+
+	HLCD_VoidSendString("Temperature=");
+
+	while(1){
+
+	G_Temp = ( MADC_VoidADCRead(ADC_CHANNEL_0)*0.25);
+
+
+	if (G_Temp<10)
+	{
+		HLCD_VoidCursor(12,LINE0);
+		HLCD_VoidSendData(30);
+		HLCD_VoidSendData((G_Temp%10)+48);
+		HLCD_VoidSendData(0xDF);
+		HLCD_VoidSendData('c');
+	}
+	else if(G_Temp<100)
+	{
+		HLCD_VoidCursor(12,LINE0);
+
+		HLCD_VoidSendData((G_Temp/10)+48);
+		HLCD_VoidSendData((G_Temp%10)+48);
+		HLCD_VoidSendData(0xDF);
+		HLCD_VoidSendData('c');
+	}
+
+
+		if(G_Temp<20)
+		{
+			MDIO_voidSetPinValue(PORTC,PIN1,HIGH);
+		}
+		else if (G_Temp>30)
+		{
+			MDIO_voidSetPinValue(PORTC,PIN0,HIGH);
+		}
+		else
+		{
+			MDIO_voidSetPinValue(PORTC,PIN0,LOW);
+			MDIO_voidSetPinValue(PORTC,PIN1,LOW);
+		}
+}
+}
+

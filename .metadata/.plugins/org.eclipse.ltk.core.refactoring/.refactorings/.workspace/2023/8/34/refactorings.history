@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;ITI/HAL/KPD/KPD_Confg.h&apos;" deleteContents="false" description="Delete resource &apos;ITI/HAL/KPD/KPD_Confg.h&apos;" element1="/ITI/HAL/KPD/KPD_Confg.h" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1693081792722"/>
+</session>

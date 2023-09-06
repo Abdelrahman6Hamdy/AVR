@@ -1,0 +1,504 @@
+/*
+ * Main_transmitter.c
+ *
+ *  Created on: Sep 2, 2023
+ *      Author: Abdelrahman
+ */
+#define F_CPU 8000000UL
+
+#include "../MCAL/DIO/DIO_Init.h"
+#include "../HAL/LCD/LCD_Int.h"
+#include "../HAL/KPD/KPD_Init.h"
+#include "../MCAL/UART/UART_Init.h"
+
+u8 CheckPassword(u16 L_ID , u16 L_Password);
+
+u16 GetPassword();
+
+int main(){ // Receive
+
+//	u8 L_Receive, flag=1;
+//	u16 i = 10000 , ID,Password = 0;
+//
+//	u8 L_Text1[16]={"Enter ID:"};
+	u8 L_Text2[16];//={"Enter Password:"};
+	MUART_VoidInit();
+	HLCD_VoidInit();
+
+	MUART_VoidReceiveString3(L_Text2);
+	HLCD_VoidSendString(L_Text2);
+
+//	while ( i!=1 ) {
+//
+//	L_Receive=MUART_u8Receive();
+//	//HLCD_VoidSendData(L_Receive);
+//
+//	switch (L_Receive)
+//	{
+//	case '*':
+//		flag=0;
+//		HLCD_VoidSendString(L_Text1);
+//		HLCD_VoidCursor(0,LINE1);
+//		break;
+//	case '#':
+//		flag=0;
+//		//CheckPassword();
+//		break;
+//	default:
+//		HLCD_VoidSendData(L_Receive);
+//		L_Receive -= '0' ;
+//	i/=10;
+//		Password += L_Receive *i ;
+//	}
+//
+//
+//	}
+return 0;
+}
+
+void __vector_13 (void) __attribute__((signal));
+void __vector_13 (void)
+{
+
+}
+void __vector_14 (void) __attribute__((signal));
+void __vector_14 (void)
+{
+
+}
+
+//int main(){
+//
+//
+//	u8 L_Text1[16]={"Enter ID:"};
+//	//u8 L_PressedKey;
+//
+//	MUART_VoidInit();
+//	HKPD_VoidInit();
+//
+//	MUART_VoidSendString(L_Text1);
+//
+//
+//
+//	while(1){
+//
+////	L_PressedKey=HKPD_u8GetPressedKey();
+////
+////	MUART_VoidTransmit(L_PressedKey);
+//
+//	}
+//return 0;
+//}
+
+u16 GetNumber()
+{
+	u8 L_Number;
+	u8 L_PressedKey;
+	
+	L_PressedKey=HKPD_u8GetPressedKey();
+	while(L_PressedKey == '*' || L_PressedKey == '#' )
+	{
+		L_PressedKey=HKPD_u8GetPressedKey();
+	}
+	HLCD_VoidSendData(L_PressedKey);
+	L_Number = L_PressedKey*1000;
+	
+	
+	L_PressedKey=HKPD_u8GetPressedKey();
+	while(L_PressedKey == '*' || L_PressedKey == '#' )
+	{
+		L_PressedKey=HKPD_u8GetPressedKey();
+	}
+	HLCD_VoidSendData(L_PressedKey);
+	L_Number += (L_PressedKey*100);
+	
+	L_PressedKey=HKPD_u8GetPressedKey();
+	while(L_PressedKey == '*' || L_PressedKey == '#' )
+	{
+		L_PressedKey=HKPD_u8GetPressedKey();
+	}
+	HLCD_VoidSendData(L_PressedKey);
+	L_Number += (L_PressedKey*10);
+	
+	L_PressedKey=HKPD_u8GetPressedKey();
+	while(L_PressedKey == '*' || L_PressedKey == '#' )
+	{
+		L_PressedKey=HKPD_u8GetPressedKey();
+	}
+	HLCD_VoidSendData(L_PressedKey);
+	L_Number += L_PressedKey;
+	
+	return L_Number;
+}
+
+
+u8 CheckPassword(u16 L_ID, u16 L_Password)
+{
+	u16 id1=1234, pass1=4321;//Ahmed
+	u16 id2=5678, pass2=8765;//Nour
+	u16 id3=7891, pass3=1987;//Khaled
+	
+	
+	
+	
+}
+
+
+
+//########################################################################################
+UART
+//########################################################################################
+/*
+ * main.c
+ *
+ *  Created on: Aug 19, 2023
+ *      Author: Abdelrahman
+ */
+
+//#define F_CPU 8000000UL
+
+#include "../MCAL/DIO/DIO_Init.h"
+#include "../HAL/LCD/LCD_Int.h"
+#include "../HAL/KPD/KPD_Init.h"
+#include "../MCAL/UART/UART_Init.h"
+
+
+int main(){
+
+	MDIO_voidSetPortDirection(PORTA,0Xff);
+	MDIO_voidSetPortDirection(PORTB	,0Xff);
+
+//	MDIO_voidSetPinDirection(PORTD,PIN0,INPUT);
+//	MDIO_voidSetPinDirection(PORTD,PIN0,OUTPUT);
+
+	u8  L_u8_Arr_Send[10]={"ABCDEFGH"};
+	u8  L_u8_Arr_Receive[10];
+	u8  *L_u8_ReceivedChar;
+	u32 L_u8_ReceivedNum;
+
+
+	HLCD_VoidInit();
+	MUART_VoidInit();
+
+	MUART_VoidTransmit('A');
+	L_u8_ReceivedChar = MUART_u8Receive();
+	HLCD_VoidSendData(L_u8_ReceivedChar);
+
+
+	_delay_ms(500);
+	HLCD_VoidClear();
+
+	MUART_VoidSendString(L_u8_Arr_Send);
+	MUART_VoidReceiveString(L_u8_Arr_Receive);
+	HLCD_VoidSendString(L_u8_Arr_Receive);
+
+
+	_delay_ms(500);
+	HLCD_VoidClear();
+
+
+	MUART_VoidSendNumber(60000);
+	L_u8_ReceivedNum = MUART_u32ReceiveNumber();
+	HLCD_VoidSendNumber(L_u8_ReceivedNum);
+
+return 0;
+}
+
+
+//########################################################################################
+KPD
+//########################################################################################
+/*
+ * main.c
+ *
+ *  Created on: Aug 19, 2023
+ *      Author: Abdelrahman
+ */
+
+#define F_CPU 8000000UL
+#include "../LIB/BIT_MATH.h"
+#include "../LIB/STD_TYPES.h"
+#include <util/delay.h>
+
+#include "../MCAL/DIO/DIO_Init.h"
+#include "../HAL/LCD/LCD_Int.h"
+#include "../HAL/KPD/KPD_Init.h"
+
+
+int main(){
+	u8 L_u8_KeyPressed;
+
+	HLCD_VoidInit();
+
+	HKPD_VoidInit();
+
+	while(1){
+
+	L_u8_KeyPressed=HKPD_u8GetPressedKey();
+	HLCD_VoidSendData( L_u8_KeyPressed );
+
+	}
+
+return 0;
+}
+
+//########################################################################################
+LCD
+//########################################################################################
+/*
+ * main.c
+ *
+ *  Created on: Aug 19, 2023
+ *      Author: Abdelrahman
+ */
+
+//#define F_CPU 8000000UL
+
+#include "../MCAL/DIO/DIO_Init.h"
+#include "../HAL/LCD/LCD_Int.h"
+
+
+int main(){
+u8 L_u8_A[8] = {14, 17, 17, 31, 17, 17, 17};
+u8 L_u8_H[8] = {17, 17, 17, 31, 17, 17, 17};
+u8 L_u8_6[8] = {30, 16, 16, 30, 18, 18, 30};
+	MDIO_voidSetPortDirection(PORTA,0xff);
+	MDIO_voidSetPortDirection(PORTB,0xff);
+	//
+	HLCD_VoidInit();
+	HLCD_VoidSaveCustomChar(0, L_u8_A);
+	HLCD_VoidSaveCustomChar(1, L_u8_H);
+	HLCD_VoidSaveCustomChar(2, L_u8_6);
+
+
+	HLCD_VoidSendString("AbdelrahmanHamdy");
+
+	HLCD_VoidCursor(0,LINE1);
+
+//	HLCD_VoidSendData('A');
+//	HLCD_VoidSendData('H');
+//	HLCD_VoidSendNumber(6);
+
+	HLCD_VoidDisplayCustomChar(0);
+	HLCD_VoidDisplayCustomChar(1);
+	HLCD_VoidDisplayCustomChar(2);
+
+	while(1){
+
+
+	}
+return 1;
+}
+//########################################################################################
+7 segments
+//########################################################################################
+
+/*
+ * main.c
+ *
+ *  Created on: Aug 19, 2023
+ *      Author: Abdelrahman
+ */
+
+#define FCPU 8000000
+
+#include "../LIB/STD_TYPES.h"
+#include "../LIB/BIT_MATH.h"
+
+#include "../MCAL/DIO/DIO_Init.h"
+#include "../HAL/SSD/7SegDisp_Int.h"
+
+#include <util/delay.h>
+
+int main(){
+	u8 i;
+	MDIO_voidSetPortDirection(PORTA,0xff);
+	HSSD_VoidInit(PORTC);
+	HSSD_VoidInit(PORTD);
+
+
+
+	while(1){
+
+		MDIO_voidSetPinValue(PORTA,PIN0,HIGH);
+
+			HSSD_VoidDisplayNumber(PORTD,1);
+			for (i=5;i>0;i--)
+			{
+				HSSD_VoidDisplayNumber(PORTC,i);
+				_delay_ms(500);
+			}
+
+
+			HSSD_VoidDisplayNumber(PORTD,1);
+			HSSD_VoidDisplayNumber(PORTC,0);
+			_delay_ms(500);
+
+			HSSD_VoidDisplayNumber(PORTD,0);
+
+			for (i=9;i>0;i--)
+			{
+				HSSD_VoidDisplayNumber(PORTC,i);
+				_delay_ms(500);
+			}
+
+		HSSD_VoidDisplayNumber(PORTC,0);
+		_delay_ms(500);
+
+		MDIO_voidSetPinValue(PORTA,PIN0,LOW);
+
+//########################################################################################
+
+		MDIO_voidSetPinValue(PORTA,PIN1,HIGH);
+
+			for (i=3;i>0;i--)
+			{
+				HSSD_VoidDisplayNumber(PORTC,i);
+				_delay_ms(500);
+
+			}
+		HSSD_VoidDisplayNumber(PORTC,0);
+		_delay_ms(500);
+
+		MDIO_voidSetPinValue(PORTA,PIN1,LOW);
+
+
+//########################################################################################
+
+		MDIO_voidSetPinValue(PORTA,PIN2,HIGH);
+
+		HSSD_VoidDisplayNumber(PORTD,1);
+		HSSD_VoidDisplayNumber(PORTC,0);
+		_delay_ms(500);
+
+
+		HSSD_VoidDisplayNumber(PORTD,1);
+		HSSD_VoidDisplayNumber(PORTD,0);
+
+		for (i=9;i>0;i--)
+			{
+				HSSD_VoidDisplayNumber(PORTC,i);
+				_delay_ms(500);
+			}
+		HSSD_VoidDisplayNumber(PORTC,0);
+		_delay_ms(500);
+
+		MDIO_voidSetPinValue(PORTA,PIN2,LOW);
+		_delay_ms(10);
+
+	}
+
+
+
+return 1;
+}
+
+#################################################################################################################################
+/*
+ * mainDIO.c
+ *
+ *  Created on: Aug 19, 2023
+ *      Author: Abdelrahman
+ */
+
+
+/*
+ * main.c
+ *
+ *  Created on: Aug 19, 2023
+ *      Author: Abdelrahman
+ */
+
+#define FCPU 8000000
+
+#include "../LIB/STD_TYPES.h"
+#include "../LIB/BIT_MATH.h"
+
+#include "../MCAL/DIO/DIO_Init.h"
+#include "../HAL/SSD/7SegDisp_Int.h"
+
+#include <util/delay.h>
+
+int main(){
+
+
+	MDIO_voidSetPortDirection(PORTA,0xff);
+
+
+
+	while(1){
+
+	for(int i=0 ; i<8; i++)
+		{
+			MDIO_voidSetPinValue(PORTA,i-1,0);
+			_delay_ms(100);
+
+			MDIO_voidSetPinValue(PORTA,i,1);
+			_delay_ms(500);
+		}
+	MDIO_voidSetPinValue(PORTA,7,LOW);
+
+}
+
+return 1;
+}
+
+#################################################################################################################################
+/*
+ * mainSSD.c
+ *
+ *  Created on: Aug 19, 2023
+ *      Author: Abdelrahman
+ */
+
+
+/*
+ * main.c
+ *
+ *  Created on: Aug 19, 2023
+ *      Author: Abdelrahman
+ */
+
+#define FCPU 8000000
+
+#include "../LIB/STD_TYPES.h"
+#include "../LIB/BIT_MATH.h"
+
+#include "../MCAL/DIO/DIO_Init.h"
+#include "../HAL/SSD/7SegDisp_Int.h"
+
+#include <util/delay.h>
+
+int main(){
+
+	HSSD_VoidInit(PORTA);
+	HSSD_VoidInit(PORTC);
+	HSSD_VoidInit(PORTD);
+
+
+	while(1){
+
+	for(u8 k=0;k<10;k++)
+	{
+		HSSD_VoidDisplayNumber(PORTA,k);
+
+		for(u8 j=0;j<6;j++)
+		{
+		HSSD_VoidDisplayNumber(PORTD,j);
+
+			for (u8 i=0;i<10;i++)
+			{
+				HSSD_VoidDisplayNumber(PORTC,i);
+
+				_delay_ms(100);
+
+			}
+		}
+
+	}
+}
+
+return 1;
+}
+
+#################################################################################################################################

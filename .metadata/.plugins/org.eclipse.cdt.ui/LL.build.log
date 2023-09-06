@@ -1,0 +1,108 @@
+04:12:26 **** Build of configuration Debug for project LL ****
+make all 
+Building file: ../MCAL/UART/UART_Prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"MCAL/UART/UART_Prog.d" -MT"MCAL/UART/UART_Prog.o" -c -o "MCAL/UART/UART_Prog.o" "../MCAL/UART/UART_Prog.c"
+In file included from ../MCAL/UART/../../HAL/LCD/LCD_Int.h:16,
+                 from ../MCAL/UART/UART_Prog.c:11:
+d:/iti-embedded systems/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../MCAL/UART/UART_Prog.c
+ 
+Building file: ../MCAL/Timers/Timers_Prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"MCAL/Timers/Timers_Prog.d" -MT"MCAL/Timers/Timers_Prog.o" -c -o "MCAL/Timers/Timers_Prog.o" "../MCAL/Timers/Timers_Prog.c"
+Finished building: ../MCAL/Timers/Timers_Prog.c
+ 
+Building file: ../MCAL/SPI/SPI_Prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"MCAL/SPI/SPI_Prog.d" -MT"MCAL/SPI/SPI_Prog.o" -c -o "MCAL/SPI/SPI_Prog.o" "../MCAL/SPI/SPI_Prog.c"
+Finished building: ../MCAL/SPI/SPI_Prog.c
+ 
+Building file: ../MCAL/EXTI/EXTI_Prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"MCAL/EXTI/EXTI_Prog.d" -MT"MCAL/EXTI/EXTI_Prog.o" -c -o "MCAL/EXTI/EXTI_Prog.o" "../MCAL/EXTI/EXTI_Prog.c"
+Finished building: ../MCAL/EXTI/EXTI_Prog.c
+ 
+Building file: ../MCAL/EXTI/GIE_Prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"MCAL/EXTI/GIE_Prog.d" -MT"MCAL/EXTI/GIE_Prog.o" -c -o "MCAL/EXTI/GIE_Prog.o" "../MCAL/EXTI/GIE_Prog.c"
+Finished building: ../MCAL/EXTI/GIE_Prog.c
+ 
+Building file: ../MCAL/DIO/DIO_Prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"MCAL/DIO/DIO_Prog.d" -MT"MCAL/DIO/DIO_Prog.o" -c -o "MCAL/DIO/DIO_Prog.o" "../MCAL/DIO/DIO_Prog.c"
+Finished building: ../MCAL/DIO/DIO_Prog.c
+ 
+Building file: ../MCAL/ADC/ADC_Prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"MCAL/ADC/ADC_Prog.d" -MT"MCAL/ADC/ADC_Prog.o" -c -o "MCAL/ADC/ADC_Prog.o" "../MCAL/ADC/ADC_Prog.c"
+../MCAL/ADC/ADC_Prog.c: In function 'MADC_VoidADCRead':
+../MCAL/ADC/ADC_Prog.c:49: warning: unused variable 'Local_U32_Counter'
+Finished building: ../MCAL/ADC/ADC_Prog.c
+ 
+Building file: ../HAL/SSD/7SegDisp_Prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"HAL/SSD/7SegDisp_Prog.d" -MT"HAL/SSD/7SegDisp_Prog.o" -c -o "HAL/SSD/7SegDisp_Prog.o" "../HAL/SSD/7SegDisp_Prog.c"
+Finished building: ../HAL/SSD/7SegDisp_Prog.c
+ 
+Building file: ../HAL/LM35/LM35_Prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"HAL/LM35/LM35_Prog.d" -MT"HAL/LM35/LM35_Prog.o" -c -o "HAL/LM35/LM35_Prog.o" "../HAL/LM35/LM35_Prog.c"
+Finished building: ../HAL/LM35/LM35_Prog.c
+ 
+Building file: ../HAL/LCD/LCD_Prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"HAL/LCD/LCD_Prog.d" -MT"HAL/LCD/LCD_Prog.o" -c -o "HAL/LCD/LCD_Prog.o" "../HAL/LCD/LCD_Prog.c"
+In file included from ../HAL/LCD/LCD_Int.h:16,
+                 from ../HAL/LCD/LCD_Prog.c:8:
+d:/iti-embedded systems/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../HAL/LCD/LCD_Prog.c
+ 
+Building file: ../HAL/KPD/KPD_Prog.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"HAL/KPD/KPD_Prog.d" -MT"HAL/KPD/KPD_Prog.o" -c -o "HAL/KPD/KPD_Prog.o" "../HAL/KPD/KPD_Prog.c"
+In file included from ../HAL/KPD/KPD_Init.h:14,
+                 from ../HAL/KPD/KPD_Prog.c:9:
+d:/iti-embedded systems/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../HAL/KPD/KPD_Prog.c
+ 
+Building file: ../APP/main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -g2 -gstabs -O0 -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=8000000UL -MMD -MP -MF"APP/main.d" -MT"APP/main.o" -c -o "APP/main.o" "../APP/main.c"
+In file included from ../APP/../HAL/LCD/LCD_Int.h:16,
+                 from ../APP/Func_main.h:14,
+                 from ../APP/main.c:8:
+d:/iti-embedded systems/01- imt sdk/imt_sdk_win_64/winavr/lib/gcc/../../avr/include/util/delay.h:90:3: warning: #warning "Compiler optimizations disabled; functions from <util/delay.h> won't work as designed"
+Finished building: ../APP/main.c
+ 
+Building target: LL.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,LL.map -mmcu=atmega32 -o "LL.elf"  ./MCAL/UART/UART_Prog.o  ./MCAL/Timers/Timers_Prog.o  ./MCAL/SPI/SPI_Prog.o  ./MCAL/EXTI/EXTI_Prog.o ./MCAL/EXTI/GIE_Prog.o  ./MCAL/DIO/DIO_Prog.o  ./MCAL/ADC/ADC_Prog.o  ./HAL/SSD/7SegDisp_Prog.o  ./HAL/LM35/LM35_Prog.o  ./HAL/LCD/LCD_Prog.o  ./HAL/KPD/KPD_Prog.o  ./APP/main.o   
+Finished building target: LL.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S LL.elf  >"LL.lss"
+Finished building: LL.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex LL.elf  "LL.hex"
+Finished building: LL.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 LL.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   16446 bytes (50.2% Full)
+(.text + .data + .bootloader)
+
+Data:        289 bytes (14.1% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+04:12:27 Build Finished (took 1s.555ms)
+

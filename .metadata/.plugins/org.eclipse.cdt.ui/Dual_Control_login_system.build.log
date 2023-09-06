@@ -1,0 +1,24 @@
+04:17:22 **** Incremental Build of configuration Debug for project Dual_Control_login_system ****
+make all 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Dual_Control_login_system.elf  "Dual_Control_login_system.hex"
+Finished building: Dual_Control_login_system.hex
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Dual_Control_login_system.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:   15054 bytes (45.9% Full)
+(.text + .data + .bootloader)
+
+Data:        279 bytes (13.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+04:17:22 Build Finished (took 226ms)
+

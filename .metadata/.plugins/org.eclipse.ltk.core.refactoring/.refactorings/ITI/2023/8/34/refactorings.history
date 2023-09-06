@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;ITI/HAL/KPD/KPD_Prog.h&apos; to &apos;KPD_Init.h&apos;" description="Rename resource &apos;KPD_Prog.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="HAL/KPD/KPD_Prog.h" name="KPD_Init.h" stamp="1693056126466" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;ITI/HAL/KPD/KPD_Progg.c&apos; to &apos;KPD_Prog.c&apos;" description="Rename resource &apos;KPD_Progg.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="HAL/KPD/KPD_Progg.c" name="KPD_Prog.c" stamp="1693056133289" updateReferences="true"/>
+</session>

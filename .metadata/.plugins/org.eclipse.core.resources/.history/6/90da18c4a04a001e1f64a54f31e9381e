@@ -1,0 +1,13 @@
+/*
+ * KPD_Config.h
+ *
+ *  Created on: Sep 3, 2023
+ *      Author: Abdelrahman
+ */
+
+
+#define KPD_PORT 2
+
+
+#define RowNum 4
+#define ColNum 4

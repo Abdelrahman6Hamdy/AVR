@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;ITI/MCAL/Timers/Timers.c&apos; to &apos;Timers_Prog.c&apos;" description="Rename resource &apos;Timers.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="MCAL/Timers/Timers.c" name="Timers_Prog.c" stamp="1693161854249" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;ITI/MCAL/Timers/Timers.h&apos; to &apos;Timers_Init.h&apos;" description="Rename resource &apos;Timers.h&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="MCAL/Timers/Timers.h" name="Timers_Init.h" stamp="1693161862160" updateReferences="true"/>
+</session>

@@ -1,0 +1,40 @@
+/*
+ * Main_transmitter.c
+ *
+ *  Created on: Sep 2, 2023
+ *      Author: Abdelrahman
+ */
+#define F_CPU 8000000UL
+
+#include "../MCAL/DIO/DIO_Init.h"
+#include "../HAL/LCD/LCD_Int.h"
+#include "../HAL/KPD/KPD_Init.h"
+#include "../MCAL/UART/UART_Init.h"
+
+
+int maint(){
+
+	MDIO_voidSetPinDirection(PORTD,PIN0,INPUT);
+	MDIO_voidSetPinDirection(PORTD,PIN0,OUTPUT);
+
+	u8  L_u8_Arr_Send[10]={"ABCDEF"};
+
+	MUART_VoidInit();
+
+
+	MUART_VoidTransmit('A');
+//
+//	MUART_VoidSendNumber(60000);
+//
+//	MUART_VoidSendString(L_u8_Arr_Send);
+
+	while(1){
+
+
+	}
+return 0;
+}
+
+
+
+

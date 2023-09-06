@@ -1,0 +1,57 @@
+/*
+ * KPD_Progg.c
+ *
+ *  Created on: Aug 26, 2023
+ *      Author: Abdelrahman
+ */
+
+
+#include "KPD_Init.h"
+
+
+u8 G_u8_Matrix[4][4]=
+{
+	{'7','8','9','/'},
+	{'4','5','6','*'},
+	{'1','2','3','-'},
+	{'c','0','=','+'}
+};
+
+void HKPD_VoidInit()
+{
+	MDIO_voidSetPortDirection(KPD_PORT, 0x0f);
+	_delay_ms(10);
+	MDIO_voidSetPortValue(KPD_PORT,0xff);
+	_delay_ms(10);
+}
+
+u8 HKPD_u8GetPressedKey()
+{
+u8 L_u8_PressedKey, L_u8_Stop=1;
+
+
+while(L_u8_Stop)
+{
+	for(u8 Col = 0 ; Col < ColNum ; Col++ )
+	{
+
+		MDIO_voidSetPinValue ( KPD_PORT ,Col, LOW );
+
+		for(u8 Row = 0 ; Row < RowNum ; Row++ )
+		{
+			if(MDIO_u8GetPinValue(KPD_PORT, Row+ColNum ) == LOW)
+			{
+				L_u8_PressedKey=G_u8_Matrix[Row][Col];
+				while(MDIO_u8GetPinValue(KPD_PORT, Row+ColNum ) == LOW ){}
+				_delay_ms(10);
+				L_u8_Stop=0;
+				break;
+			}
+				while(MDIO_u8GetPinValue(KPD_PORT, Row+ColNum ) == LOW ){}
+//				_delay_ms(10);
+		}
+		MDIO_voidSetPinValue ( KPD_PORT ,Col, HIGH);
+	}
+}
+return L_u8_PressedKey ;
+}

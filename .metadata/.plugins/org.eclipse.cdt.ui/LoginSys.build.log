@@ -1,0 +1,9 @@
+23:35:36 **** Incremental Build of configuration Default for project LoginSys ****
+make all 
+Cannot run program "make": Launching failed
+
+Error: Program "make" not found in PATH
+PATH=[D:/ITI-Embedded systems/01- IMT SDK/IMT_SDK_Win_64/jre/bin/server;D:/ITI-Embedded systems/01- IMT SDK/IMT_SDK_Win_64/jre/bin;D:/ITI-Embedded systems/01- IMT SDK/IMT_SDK_Win_64/jre/lib/amd64;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files\Polyspace\R2021a\runtime\win64;C:\Program Files\Polyspace\R2021a\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;D:\ITI-Embedded systems\02- Toolchains\mingw64\bin;C:\Program Files\Git\cmd;C:\Users\Abdelrahman\AppData\Local\Microsoft\WindowsApps;C:\Users\Abdelrahman\AppData\Local\Programs\Microsoft VS Code\bin;C:\ProgramData\Abdelrahman\GitHubDesktop\bin;C:\Users\Abdelrahman\AppData\Local\GitHubDesktop\bin;D:\ITI-Embedded systems\01- IMT SDK\IMT_SDK_Win_64;]
+
+23:35:36 Build Finished (took 36ms)
+
